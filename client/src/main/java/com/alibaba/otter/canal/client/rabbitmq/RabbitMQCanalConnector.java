@@ -49,7 +49,11 @@ public class RabbitMQCanalConnector implements CanalMQConnector {
     private long                                batchProcessTimeout = 60 * 1000;
     private BlockingQueue<ConsumerBatchMessage> messageBlockingQueue;
     private volatile ConsumerBatchMessage       lastGetBatchMessage = null;
-
+    public static void main(String args[]) {
+        RabbitMQCanalConnector rabbitMQCanalConnector = new RabbitMQCanalConnector("127.0.0.1", "/", "canal.queue",
+                "", "", "guest", "guest", 0L, true);
+        rabbitMQCanalConnector.subscribe();
+    }
     public RabbitMQCanalConnector(String nameServer, String vhost, String queueName, String accessKey, String secretKey,
                                   String username, String password, Long resourceOwnerId, boolean flatMessage){
         this.nameServer = nameServer;

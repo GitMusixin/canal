@@ -1,21 +1,18 @@
 dataSourceKey: defaultDS
-destination: test_ots
+destination: example
 groupId: g1
-outerAdapterKey: mysql1
-threads: 1
+outerAdapterKey: ts
+threads: 8
 updateChangeColumns: false
 dbMapping:
-  database: test_ots
-  table: test
-  targetTable: canal_target
+  database: test
+  table: tb_user
+  targetTable: tb_user
   targetPk:
-    oId: oId
+    id: id
   targetColumns:
-    oId:
-    c_id:
-    p_price:
-    p_count:
-  etlCondition: 
-  commitBatch: 1 # 批量提交的大小
-
-
+    id:
+    username: username$string
+    password: password$string
+  etlCondition:
+  commitBatch: 200 # 批量提交的行数。

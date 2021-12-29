@@ -84,6 +84,7 @@ public class CanalLauncher {
 
                     private PlainCanal lastCanalConfig;
 
+                    @Override
                     public void run() {
                         try {
                             if (lastCanalConfig == null) {
