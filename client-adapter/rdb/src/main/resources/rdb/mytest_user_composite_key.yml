@@ -1,0 +1,43 @@
+#dataSourceKey: defaultDS
+#destination: example
+#groupId: g1
+#outerAdapterKey: mysql1
+#concurrent: true
+#dbMapping:
+#  database: mytest
+#  table: user
+#  targetTable: mytest2.user
+#  targetPk:
+#    id: id
+##  mapAll: true
+#  targetColumns:
+#    id:
+#    name:
+#    role_id:
+#    c_time:
+#    test1:
+#  etlCondition: "where c_time>={}"
+#  commitBatch: 3000 # 批量提交的大小
+
+
+# Mirror schema synchronize config
+dataSourceKey: defaultDS
+destination: example
+groupId: g1
+outerAdapterKey: mysql1
+concurrent: true
+dbMapping:
+  mirrorDb: true
+  database: test
+  table: tb_user
+  targetTable: tb_user
+  targetPk:
+    id: id
+    username: username
+  targetColumns:
+    id:
+    username:
+    password: password
+  etlCondition:
+  commitBatch: 200 # 批量提交的行数。
+
